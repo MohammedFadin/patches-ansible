@@ -4,5 +4,3 @@
     - name: RHEL Security Patches
       shell:
         cmd: yum check-update
-      debug:
-        msg: "System Logged in successfully to {{ ansible_distribution }}"
