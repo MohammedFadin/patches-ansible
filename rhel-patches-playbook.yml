@@ -5,7 +5,6 @@
       yum:
         list: package_name
         register: fetched_packages_names
-
-    - name:
-      debug: List all avaialble upgradeable packages
+        
+    - debug: List all avaialble upgradeable packages
         var=fetched_packages_names
