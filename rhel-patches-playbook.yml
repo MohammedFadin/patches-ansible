@@ -1,9 +1,10 @@
 - name: Linux OS Mandotory Patches
   hosts: all
   tasks:
-    - name: List all avaialble upgradeable packages
+    - name: Fetching all available packages
       yum:
         list: package_name
 
-    - debug:
-      var: package_name
+    - name:
+      debug: List all avaialble upgradeable packages
+        var: package_name
