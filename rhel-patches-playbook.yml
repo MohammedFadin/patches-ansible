@@ -1,6 +1,6 @@
 - name: Linux OS Mandotory Patches
   hosts: all
   tasks:
-    - name: RHEL Security Patches
-      shell:
-        cmd: yum check-update
+    - name: List all avaialble upgradeable packages
+      yum:
+        list: package_name
