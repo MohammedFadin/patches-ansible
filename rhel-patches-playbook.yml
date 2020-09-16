@@ -4,7 +4,8 @@
     - name: Fetching all available packages
       yum:
         list: package_name
+        register: fetched_packages_names
 
     - name:
       debug: List all avaialble upgradeable packages
-        var: package_name
+        var: fetched_packages_names
