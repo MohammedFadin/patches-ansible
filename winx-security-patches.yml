@@ -1,0 +1,6 @@
+- name: Windows Mandotory Patches
+  hosts: all
+  tasks:
+    - name: Patching Windows 10
+      debug:
+        msg: "Windows 10 Host patched CVE-2020-1471"
