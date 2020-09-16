@@ -4,3 +4,5 @@
     - name: List all avaialble upgradeable packages
       yum:
         list: package_name
+    - debug:
+      var: package_name
