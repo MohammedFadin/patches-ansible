@@ -6,6 +6,5 @@
         list: updates
         register: available_updates
         when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
-        
-    - debug: List all avaialble upgradeable packages
+    - debug: var=available_updates
       msg: "{{ available_updates.results | map(attribute='name') | list }}
