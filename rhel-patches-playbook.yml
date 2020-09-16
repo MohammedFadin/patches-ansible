@@ -3,8 +3,9 @@
   tasks:
     - name: Fetching all available packages
       yum:
-        list: package_name
-        register: fetched_packages_names
+        list: updates
+        register: available_updates
+        when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
         
     - debug: List all avaialble upgradeable packages
-        var=fetched_packages_names
+      msg: "{{ yumoutput.results | map(attribute='name') | list }}
