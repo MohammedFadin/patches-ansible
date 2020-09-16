@@ -8,4 +8,4 @@
 
     - name:
       debug: List all avaialble upgradeable packages
-        var: fetched_packages_names
+        var=fetched_packages_names
