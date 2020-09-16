@@ -8,4 +8,4 @@
         when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
         
     - debug: List all avaialble upgradeable packages
-      msg: "{{ yumoutput.results | map(attribute='name') | list }}
+      msg: "{{ available_updates.results | map(attribute='name') | list }}
