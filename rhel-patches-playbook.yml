@@ -1,4 +1,3 @@
----
 - name: Linux OS Mandotory Patches
   hosts: all
   gather_facts: true
