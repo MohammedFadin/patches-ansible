@@ -1,10 +1,12 @@
+---
 - name: Linux OS Mandotory Patches
   hosts: all
+  gather_facts: true
+
   tasks:
-    - name: Fetching all available packages
-      yum:
-        list: updates
-        register: available_updates
-        when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
-    - debug: var=available_updates
-      msg: "{{ available_updates.results | map(attribute='name') | list }}
+  - name: check for updates (yum)
+    yum: list=updates update_cache=true
+    register: yumoutput
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  - debug: var=yumoutput
+    msg: "{{ yumoutput.results | map(attribute='name') | list }}
