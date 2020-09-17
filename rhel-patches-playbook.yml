@@ -2,11 +2,15 @@
   hosts: all
   gather_facts: true
   tasks:
-    - name: get package version
+    - name: get installed packages
       yum:
         list: installed
-      register: package_name_version
-#     - name: set package version
-#       set_fact:
-#         package_name_version: "{{ package_name_version.results|selectattr('yumstate','equalto','installed')|map(attribute='version')|list|first }}"
-    - debug: var=package_name_version
+      register: packages_installed
+    - debug: var=packages_installed
+
+    - name: get available packages updat
+      yum:
+        list: updates
+        update_cache: true
+      register: packages_update
+    - debug: var=packages_update
