@@ -8,7 +8,7 @@
       register: packages_installed
     - debug: var=packages_installed
 
-    - name: get available packages updat
+    - name: get available packages updates
       yum:
         list: updates
         update_cache: true
